@@ -218,7 +218,7 @@ nnoremap ,gg :GitGrep ""<left>
 " Pull up file in NERDTree
 nnoremap <silent> <C-o> :NERDTreeFind<CR>:vertical res 30<CR>
 
-" Always copy the entire line  
+" Always copy the entire line
 nnoremap Y yy
 
 " Redo
@@ -250,6 +250,27 @@ map <silent> ,6 :tabn 6<cr>
 map <silent> ,7 :tabn 7<cr>
 map <silent> ,8 :tabn 8<cr>
 map <silent> ,9 :tabn 9<cr>
+
+" Use Q to intelligently close a window
+" " (if there are multiple windows into the same buffer)
+" " or kill the buffer entirely if it's the last window looking into that buffer
+function! CloseWindowOrKillBuffer()
+  let number_of_windows_to_this_buffer = len(filter(range(1, winnr('$')), "winbufnr(v:val) == bufnr('%')"))
+
+  " We should never bdelete a nerd tree
+  if matchstr(expand("%"), 'NERD') == 'NERD'
+    wincmd c
+    return
+  endif
+
+  if number_of_windows_to_this_buffer > 1
+    wincmd c
+  else
+    bdelete
+  endif
+endfunction
+
+nnoremap <silent> Q :call CloseWindowOrKillBuffer()<CR>
 
 " Screen settings
 let g:ScreenImpl = 'Tmux'
