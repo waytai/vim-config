@@ -20,6 +20,10 @@ elseif $TERM =~ '^xterm$'
 endif
 colorscheme molokai
 
+" Better Line Highlighting
+autocmd InsertEnter * set cul
+autocmd InsertLeave * set nocul
+
 " Misc
 filetype plugin indent on       " Do filetype detection and load custom file plugins and indent files
 set hidden                      " Don't abandon buffers moved to the background
@@ -166,9 +170,6 @@ let NERDTreeHighlightCursorline=1
 let NERDTreeShowBookmarks=1
 let NERDTreeShowFiles=1
 
-nnoremap <silent> <Leader>gd :Gdiff<CR>
-nnoremap <silent> <Leader>gb :Gblame<CR>
-
 nnoremap <Leader>a :Ack
 
 " Put a space around comment markers
@@ -250,6 +251,17 @@ map <silent> ,6 :tabn 6<cr>
 map <silent> ,7 :tabn 7<cr>
 map <silent> ,8 :tabn 8<cr>
 map <silent> ,9 :tabn 9<cr>
+
+" For fugitive.git, dp means :diffput. Define dg to mean :diffget
+nnoremap <silent> <Leader>dg :diffget<CR>
+nnoremap <silent> <Leader>dp :diffput<CR>
+nnoremap <silent> <Leader>gb :Gblame<CR>
+nnoremap <silent> <Leader>gs :Gstatus<CR>
+nnoremap <silent> <Leader>gd :Gdiff<CR>
+nnoremap <silent> <Leader>gl :Glog<CR>
+nnoremap <silent> <Leader>gc :Gcommit<CR>
+nnoremap <silent> <Leader>gp :Git push<CR>
+nnoremap <silent> <Leader>gw :Gwrite<CR>
 
 " Use Q to intelligently close a window
 " " (if there are multiple windows into the same buffer)
