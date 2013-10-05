@@ -169,7 +169,7 @@ let NERDTreeShowFiles=1
 nnoremap <silent> <Leader>gd :Gdiff<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 
-nnoremap <Leader>a :Ack 
+nnoremap <Leader>a :Ack
 
 " Put a space around comment markers
 let g:NERDSpaceDelims = 1
@@ -193,7 +193,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 
-" let g:Powerline_symbols = 'unicode'
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
@@ -212,6 +211,45 @@ noremap \\| :Tabularize /\|<CR>
 noremap \& :Tabularize /\(&\\|\\\\\)<CR>
 
 nnoremap <Leader>t :TagbarOpen fjc<CR>
+
+" GitGrep - open up a git grep line, with a quote started for the search
+nnoremap ,gg :GitGrep ""<left>
+
+" Pull up file in NERDTree
+nnoremap <silent> <C-o> :NERDTreeFind<CR>:vertical res 30<CR>
+
+" Always copy the entire line  
+nnoremap Y yy
+
+" Redo
+map <silent> r :red<CR>
+
+" Save
+map <silent> W :w<CR>
+
+" Comment out code
+map <silent> I :TComment<CR>
+
+" Make tab in visual mode indent code
+vmap <tab> >gv
+vmap <s-tab> <gv
+
+" New tab
+map <silent> ,n :tabnew<cr>
+
+" Zoom in and out of current window with ,gz
+map <silent> ,gz <C-w>o
+
+" Use numbers to pick the tab you want (like iTerm)
+map <silent> ,1 :tabn 1<cr>
+map <silent> ,2 :tabn 2<cr>
+map <silent> ,3 :tabn 3<cr>
+map <silent> ,4 :tabn 4<cr>
+map <silent> ,5 :tabn 5<cr>
+map <silent> ,6 :tabn 6<cr>
+map <silent> ,7 :tabn 7<cr>
+map <silent> ,8 :tabn 8<cr>
+map <silent> ,9 :tabn 9<cr>
 
 " Screen settings
 let g:ScreenImpl = 'Tmux'
