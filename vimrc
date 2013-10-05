@@ -193,7 +193,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 
-let g:Powerline_symbols = 'unicode'
+" let g:Powerline_symbols = 'unicode'
+let g:airline_powerline_fonts = 1
 set laststatus=2
 
 let g:ctrlp_map = '<Leader>.'

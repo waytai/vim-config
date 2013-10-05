@@ -11,6 +11,10 @@ To update the repository, run
 
     make update
 
+Other tools needed
+------------------
+sudo apt-get install ctags ack ack-grep
+
 Other Notes
 ------------
 
