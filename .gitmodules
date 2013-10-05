@@ -176,3 +176,6 @@
 [submodule "bundle/gitgrep"]
 	path = bundle/gitgrep
 	url = https://github.com/aghareza/vim-gitgrep.git
+[submodule "bundle/tcomment"]
+	path = bundle/tcomment
+	url = https://github.com/tomtom/tcomment_vim.git
