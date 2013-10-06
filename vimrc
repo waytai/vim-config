@@ -105,7 +105,7 @@ au CursorHold * checktime
 " Keybindings
 """""""""""""""""""""""""
 let mapleader=","
-let localmapleader=","
+" let localmapleader=","
 
 nmap <Leader>s :%S/
 vmap <Leader>s :S/
@@ -265,6 +265,8 @@ nnoremap <silent> <Leader>gd :Gdiff<CR>
 nnoremap <silent> <Leader>gl :Glog<CR>
 nnoremap <silent> <Leader>gc :Gcommit<CR>
 nnoremap <silent> <Leader>gp :Git push<CR>
+" Disable ,gw for :GitGrepWord
+let g:git_grep_no_map = 1
 nnoremap <silent> <Leader>gw :Gwrite<CR>
 
 " Use Q to intelligently close a window
