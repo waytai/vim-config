@@ -21,8 +21,11 @@ endif
 colorscheme molokai
 
 " Better Line Highlighting
-autocmd InsertEnter * set cul
-autocmd InsertLeave * set nocul
+autocmd WinEnter,InsertEnter * set cul
+autocmd WinLeave,InsertLeave * set nocul
+
+" Fix ESC delays
+set timeoutlen=1000 ttimeoutlen=0
 
 " Misc
 filetype plugin indent on       " Do filetype detection and load custom file plugins and indent files
