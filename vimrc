@@ -201,7 +201,7 @@ let g:airline_theme = 'serene'
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
-let g:ctrlp_map = '<Leader>.'
+let g:ctrlp_map = '<C-t>'
 let g:ctrlp_custom_ignore = '/\.\|\.o\|\.so'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_regexp = 1
