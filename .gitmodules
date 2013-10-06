@@ -179,3 +179,6 @@
 [submodule "bundle/tcomment"]
 	path = bundle/tcomment
 	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "bundle/greplace"]
+	path = bundle/greplace
+	url = https://github.com/skwp/greplace.vim.git
