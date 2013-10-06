@@ -21,8 +21,8 @@ endif
 colorscheme molokai
 
 " Better Line Highlighting
-autocmd WinEnter,InsertEnter * set cul
-autocmd WinLeave,InsertLeave * set nocul
+autocmd InsertEnter * set cul
+autocmd BufEnter,InsertLeave * set nocul
 
 " Fix ESC delays
 set timeoutlen=1000 ttimeoutlen=0
