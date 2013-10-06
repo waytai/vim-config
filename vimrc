@@ -131,9 +131,9 @@ map <PageDown> :lnext<CR>
 map <PageUp>   :lprev<CR>
 
 " Make Y consistent with D and C
-function! YRRunAfterMaps()
-  nnoremap <silent> Y :<C-U>YRYankCount 'y$'<CR>
-endfunction
+" function! YRRunAfterMaps()
+"   nnoremap <silent> Y :<C-U>YRYankCount 'y$'<CR>
+" endfunction
 
 " Disable K for manpages - not used often and easy to accidentally hit
 noremap K k
