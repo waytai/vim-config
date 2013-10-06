@@ -194,6 +194,7 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 
+let g:airline_theme = 'serene'
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
