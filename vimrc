@@ -18,7 +18,6 @@ if $TERM =~ '256color'
 elseif $TERM =~ '^xterm$'
   set t_Co=256
 endif
-colorscheme molokai
 
 " Better Line Highlighting
 autocmd InsertEnter * set cul
@@ -197,8 +196,6 @@ let g:syntastic_mode_map = { 'mode': 'active',
 
 let g:quickfixsigns_classes=['qfl', 'vcsdiff', 'breakpoints']
 
-let g:airline_theme = 'serene'
-let g:airline_powerline_fonts = 1
 set laststatus=2
 
 let g:ctrlp_map = '<C-t>'

@@ -182,3 +182,6 @@
 [submodule "bundle/greplace"]
 	path = bundle/greplace
 	url = https://github.com/skwp/greplace.vim.git
+[submodule "bundle/colorschemes"]
+	path = bundle/colorschemes
+	url = git@github.com:flazz/vim-colorschemes.git
