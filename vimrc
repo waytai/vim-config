@@ -161,6 +161,7 @@ nnoremap <Leader>f :BufSurfForward<cr>
 
 nnoremap <S-u> :GundoToggle<CR>
 let g:gundo_close_on_revert=1
+let g:gundo_right = 1
 
 
 " TODO Merge the NERDTreeFind with Toggle inteilligently.
@@ -169,7 +170,7 @@ nnoremap <C-g> :NERDTreeToggle<cr>
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$',
                    \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo' ]
 let NERDTreeHighlightCursorline=1
-let NERDTreeShowBookmarks=1
+let NERDTreeMinimalUI=1
 let NERDTreeShowFiles=1
 
 nnoremap <Leader>a :Ack
@@ -232,10 +233,6 @@ map <silent> W :w<CR>
 
 " Comment out code
 map <silent> I :TComment<CR>
-
-" Make tab in visual mode indent code
-vmap <tab> >gv
-vmap <s-tab> <gv
 
 " New tab
 map <silent> ,n :tabnew<cr>
