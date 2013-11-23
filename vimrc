@@ -41,6 +41,8 @@ set scrolloff=3                 " Start scrolling 3 lines before the horizontal 
 set visualbell t_vb=            " Disable error bells
 set shortmess+=A                " Always edit file, even when swap file is found
 set clipboard=unnamed
+" hide vim welcome message
+" set shortmess+=I
 
 " up/down on displayed lines, not real lines. More useful than painful.
 noremap k gk
@@ -176,8 +178,11 @@ nnoremap <Down>  3<C-w>+
 nnoremap <Left>  3<C-w><
 nnoremap <Right> 3<C-w>>
 
-nnoremap _ :split<cr>
-nnoremap \| :vsplit<cr>
+" Makes splitting windows more natural
+set splitbelow splitright
+
+nnoremap <silent> _ <C-w>n
+nnoremap <silent> \| :vne<CR>
 
 vmap s :!sort<CR>
 vmap u :!sort -u<CR>
@@ -197,13 +202,17 @@ let g:gundo_right = 1
 
 
 " TODO Merge the NERDTreeFind with Toggle inteilligently.
-nnoremap <C-g> :NERDTreeToggle<cr>
+nnoremap <silent><C-g> :NERDTreeToggle<cr>
 
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.py\$class$', '\.obj$', '\.o$',
                    \ '\.so$', '\.egg$', '^\.git$', '\.cmi', '\.cmo' ]
 let NERDTreeHighlightCursorline=1
 let NERDTreeMinimalUI=1
 let NERDTreeShowFiles=1
+
+" Clean up buffers when entering/leaving vim
+au TermResponse * DeleteHiddenBuffers()
+au VimLeave * :%bd<CR>
 
 nnoremap <Leader>a :Ack
 
@@ -235,9 +244,14 @@ let g:ctrlp_map = '<C-t>'
 let g:ctrlp_custom_ignore = '/\.\|\.o\|\.so'
 let g:ctrlp_switch_buffer = 0
 let g:ctrlp_regexp = 0
-let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files']
+" let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files']
+" let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . --cached --exclude-standard --others']
 nnoremap <C-r> :CtrlPMRU<cr>
+nnoremap <C-e> :CtrlPTag<cr>
 
+" Align text
+nmap ,a :Tabularize /
+vmap ,a :Tabularize /
 noremap \= :Tabularize /=<CR>
 noremap \: :Tabularize /^[^:]*:\zs/l0l1<CR>
 noremap \> :Tabularize /=><CR>
@@ -247,6 +261,20 @@ noremap \\| :Tabularize /\|<CR>
 noremap \& :Tabularize /\(&\\|\\\\\)<CR>
 
 nnoremap <Leader>t :TagbarOpen fjc<CR>
+
+" Clear hidden buffers
+command! -nargs=? DeleteHiddenBuffers call s:DeleteHiddenBuffers()
+function! s:DeleteHiddenBuffers()
+    let i=1
+    let lastbuf=bufnr("$")
+    while i <= lastbuf
+        if buflisted(i) && bufwinnr(i) == -1
+        sil exe "bdelete" i
+        endif
+        let i=i+1
+    endwhile
+endfunction
+nmap <silent> ,c :DeleteHiddenBuffers<CR>
 
 " GitGrep - open up a git grep line, with a quote started for the search
 nnoremap ,gg :GitGrep ""<left>
@@ -333,6 +361,9 @@ map <Leader>r :w<CR> :call ScreenShellSend("rspec ".@% . ':' . line('.'))<CR>
 map <Leader>e :w<CR> :call ScreenShellSend("cucumber --format=pretty ".@% . ':' . line('.'))<CR>
 map <Leader>w :w<CR> :call ScreenShellSend("break ".@% . ':' . line('.'))<CR>
 map <Leader>, :w<CR> :call ScreenShellSend("\e[A")<CR>
+
+" Update ctags
+map <silent><leader>c :UpdateTags -R .<CR>
 
 """""""""""""""""""""""""
 " Cscope
