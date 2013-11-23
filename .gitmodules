@@ -185,3 +185,12 @@
 [submodule "bundle/colorschemes"]
 	path = bundle/colorschemes
 	url = git@github.com:flazz/vim-colorschemes.git
+[submodule "bundle/auto-pairs"]
+	path = bundle/auto-pairs
+	url = git@github.com:jiangmiao/auto-pairs.git
+[submodule "bundle/easytags"]
+	path = bundle/easytags
+	url = git@github.com:xolox/vim-easytags.git
+[submodule "bundle/misc"]
+	path = bundle/misc
+	url = git@github.com:xolox/vim-misc.git
